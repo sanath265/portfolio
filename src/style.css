@@ -701,3 +701,13 @@ button:focus {
 .fork-btn-inner::after {
   display: none !important;
 }
+
+/* Avatar hover rotation */
+.home-avatar-img {
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.home-avatar-img:hover {
+  transform: rotateY(360deg);
+}

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub, AiOutlineTwitter, AiFillInstagram } from "react-icons/ai";
 import Type from "./Type";
 import profilePic from "../../Assets/profile.png";
+import profilePic2 from "../../Assets/profile2.jpg";
 import { SiLeetcode, SiLinkedin } from "react-icons/si";
 
 function Home() {
+  const [hovered, setHovered] = useState(false);
   return (
     <section>
       <Container fluid className="home-section" id="home">
@@ -60,18 +62,23 @@ function Home() {
               </Row>
             </Col>
 
-            <Col md={5} className="home-avatar" style={{ paddingBottom: 20, textAlign: "center" }}>
+            <Col md={5} className="home-avatar" style={{ paddingBottom: 20, textAlign: "center", perspective: "600px" }}>
               <img
-                src={profilePic}
+                src={hovered ? profilePic2 : profilePic}
                 alt="My Profile"
                 className="img-fluid"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
                 style={{
                   width: "100%",
                   maxWidth: "450px",
                   aspectRatio: "1 / 1",
                   objectFit: "cover",
                   borderRadius: "50%",
-                  border: "5px solid var(--accent-color)"
+                  border: "5px solid var(--accent-color)",
+                  transition: "transform 0.6s ease",
+                  transformStyle: "preserve-3d",
+                  transform: hovered ? "rotateY(360deg)" : "rotateY(0deg)"
                 }}
               />
             </Col>
