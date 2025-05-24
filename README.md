@@ -4,7 +4,7 @@
 
 To clone the project, run:
 ```bash
-git clone https://github.com/your-username/portfolio.git
+git clone https://github.com/sanath265/portfolio.git
 cd portfolio
 ```
 
