@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.0ff5181b.css",
-    "main.js": "/static/js/main.834c6cf5.js",
-    "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
-    "static/media/profile.png": "/static/media/profile.5ade39a9593b82c8edae.png",
-    "static/media/leaf.png": "/static/media/leaf.ff2616f664c8c0ceab91.png",
-    "static/media/emotion.png": "/static/media/emotion.eabfc16e7a146ab15778.png",
-    "static/media/suicide.png": "/static/media/suicide.9c86cd7138a398c45fa5.png",
-    "static/media/codeEditor.png": "/static/media/codeEditor.1b585492490c8c1cace9.png",
-    "static/media/blog.png": "/static/media/blog.fb8ab7f271a937d5fc01.png",
-    "static/media/Resume.pdf": "/static/media/Resume.b6de4df2eb5c81e046ff.pdf",
-    "static/media/home-main.svg": "/static/media/home-main.541f8179af8209ce03ccf2178fe62dbf.svg",
-    "static/media/chatify.png": "/static/media/chatify.7206044e0b5cdad44726.png",
-    "static/media/avatar.svg": "/static/media/avatar.5852f40fbb38aa284829fa3fb7722225.svg",
-    "static/media/iit.jpeg": "/static/media/iit.8878afb09198ef145666.jpeg",
-    "index.html": "/index.html",
-    "main.0ff5181b.css.map": "/static/css/main.0ff5181b.css.map",
-    "main.834c6cf5.js.map": "/static/js/main.834c6cf5.js.map",
-    "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
+    "main.css": "/portfolio/static/css/main.0ff5181b.css",
+    "main.js": "/portfolio/static/js/main.17c25c8e.js",
+    "static/js/787.1ed0c42c.chunk.js": "/portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/profile.png": "/portfolio/static/media/profile.5ade39a9593b82c8edae.png",
+    "static/media/leaf.png": "/portfolio/static/media/leaf.ff2616f664c8c0ceab91.png",
+    "static/media/emotion.png": "/portfolio/static/media/emotion.eabfc16e7a146ab15778.png",
+    "static/media/suicide.png": "/portfolio/static/media/suicide.9c86cd7138a398c45fa5.png",
+    "static/media/codeEditor.png": "/portfolio/static/media/codeEditor.1b585492490c8c1cace9.png",
+    "static/media/blog.png": "/portfolio/static/media/blog.fb8ab7f271a937d5fc01.png",
+    "static/media/Resume.pdf": "/portfolio/static/media/Resume.b6de4df2eb5c81e046ff.pdf",
+    "static/media/home-main.svg": "/portfolio/static/media/home-main.541f8179af8209ce03ccf2178fe62dbf.svg",
+    "static/media/chatify.png": "/portfolio/static/media/chatify.7206044e0b5cdad44726.png",
+    "static/media/avatar.svg": "/portfolio/static/media/avatar.5852f40fbb38aa284829fa3fb7722225.svg",
+    "static/media/iit.jpeg": "/portfolio/static/media/iit.8878afb09198ef145666.jpeg",
+    "index.html": "/portfolio/index.html",
+    "main.0ff5181b.css.map": "/portfolio/static/css/main.0ff5181b.css.map",
+    "main.17c25c8e.js.map": "/portfolio/static/js/main.17c25c8e.js.map",
+    "787.1ed0c42c.chunk.js.map": "/portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0ff5181b.css",
-    "static/js/main.834c6cf5.js"
+    "static/js/main.17c25c8e.js"
   ]
 }
