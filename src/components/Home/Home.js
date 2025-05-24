@@ -1,10 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import homeLogo from "../../Assets/home-main.svg";
-import myImg from "../../Assets/avatar.svg";
-import Tilt from "react-parallax-tilt";
 import { AiFillGithub, AiOutlineTwitter, AiFillInstagram } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 import Type from "./Type";
 import profilePic from "../../Assets/profile.png";
 import { SiLeetcode, SiLinkedin } from "react-icons/si";

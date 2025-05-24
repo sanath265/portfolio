@@ -1,12 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
-import leaf from "../../Assets/Projects/leaf.png";
-import emotion from "../../Assets/Projects/emotion.png";
-import editor from "../../Assets/Projects/codeEditor.png";
-import chatify from "../../Assets/Projects/chatify.png";
-import suicide from "../../Assets/Projects/suicide.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
 
 function Projects() {
   return (
@@ -21,7 +15,6 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={chatify}
               isBlog={false}
               title="GetMyURI"
               description="Built a website to allow users to shorten their URLs, with the ability to set manual aliases, passwords, and location-based blocking on links."
@@ -32,7 +25,6 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={bitsOfCode}
               isBlog={false}
               title="Business Management Data Platform (PeakView)"
               description="Developed a full-stack web application for small-scale business vendors to manage inventory, track sales, and visualize financial data. Containerized backend services were deployed using Kubernetes on Google Cloud."
@@ -43,7 +35,6 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={editor}
               isBlog={false}
               title="Face Filter Application"
               description="Built an iOS app using ARKit to detect facial features and apply customizable moustache filters in real time. The app delivers an engaging live video and audio recording experience."
@@ -54,7 +45,6 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={leaf}
               isBlog={false}
               title="HomeDepot – E-commerce Website"
               description="Developed a static e-commerce platform that empowers local vendors by showcasing their products with a clean, responsive design aimed at enhancing community commerce."

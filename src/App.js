@@ -19,7 +19,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/portfolio">
       {/* <Preloader load={load} /> */}
       <div className="App" id={"scroll"}>
         <Navbar />
