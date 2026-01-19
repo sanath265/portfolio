@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Sanath Portfolio</title>
+  <meta name="description" content="Self Developed personal website build with React.js">
+</head>
+
+<body>
+  <script type="text/javascript">
+    // Redirect GitHub Pages requests for client-side routes back to index.
+    (function () {
+      const segmentCount = 1; // "/portfolio" repo path
+      const l = window.location;
+      const redirect = l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+        l.pathname.split("/").slice(0, 1 + segmentCount).join("/") + "/?/" +
+        l.pathname.slice(1).split("/").slice(segmentCount).join("/").replace(/&/g, "~and~") +
+        (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.hash;
+      window.location.replace(redirect);
+    })();
+  </script>
+</body>
+
+</html>
