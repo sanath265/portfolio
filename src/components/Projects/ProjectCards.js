@@ -1,40 +1,63 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
+import { CgWebsite } from "react-icons/cg";
 
-function ProjectCards(props) {
+function ProjectCard({
+  title,
+  summary,
+  metrics = [],
+  stack = [],
+  ghLink,
+  demoLink
+}) {
   return (
-    <Card className="project-card-view">
-      {/* <Card.Img variant="top" src={props.imgPath} alt="card-img" /> */}
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
-          {props.description}
-        </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
-        {"\n"}
-        {"\n"}
+    <article className="project-card-modern">
+      <div className="project-card-header">
+        <h3>{title}</h3>
+        <p>{summary}</p>
+      </div>
 
-        {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
+      {metrics.length > 0 && (
+        <ul className="project-metrics">
+          {metrics.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ul>
+      )}
 
-        {!props.isBlog && props.demoLink && (
-          <Button
-            variant="primary"
-            href={props.demoLink}
-            target="_blank"
-            style={{ marginLeft: "10px" }}
-          >
-            <CgWebsite /> &nbsp;
-            {"Demo"}
-          </Button>
-        )}
-      </Card.Body>
-    </Card>
+      <div className="project-card-footer">
+        <div className="project-tags">
+          {stack.map((tag) => (
+            <span key={`${title}-${tag}`}>{tag}</span>
+          ))}
+        </div>
+        <div className="project-links">
+          {ghLink && (
+            <a
+              href={ghLink}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${title} GitHub`}
+            >
+              <BsGithub />
+              <span>Code</span>
+            </a>
+          )}
+          {demoLink && (
+            <a
+              href={demoLink}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${title} Live Demo`}
+            >
+              <CgWebsite />
+              <span>Live</span>
+            </a>
+          )}
+        </div>
+      </div>
+    </article>
   );
 }
-export default ProjectCards;
+
+export default ProjectCard;

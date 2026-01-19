@@ -1,53 +1,41 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 
 function ProjectCards({ data }) {
-  const { company, role, location, startDate, endDate, description, icon, grade } = data;
+  const { company, role, location, startDate, endDate, icon, grade, highlights = [] } = data;
+  const [degreeLabel, specialization] = role.split("·").map((part) => part.trim());
+
   return (
-    <Card className="project-card-view">
-      <Card.Body>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "2rem",
-            marginBottom: "1rem"
-          }}
-        >
-          {icon && (
-            <img
-              src={icon}
-              alt={`${company} logo`}
-              style={{ width: "80px", height: "80px" }}
-            />
-          )}
-          <div
-            style={{
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-around",
-              height: "80px"
-            }}
-          >
-            <Card.Title style={{ margin: 0 }}>{company}</Card.Title>
-            <Card.Subtitle style={{ margin: 0, color: "gray" }}>{role}</Card.Subtitle>
-            <Card.Text style={{ margin: 0, color: "#E84855" }}>
-              {startDate} – {endDate}
-            </Card.Text>
-            <Card.Text style={{ margin: 0 }}>
-              Grade: {grade}
-            </Card.Text>
-          </div>
-          
+    <article className="education-card">
+      <div className="education-card-header">
+        <div className="education-logo" aria-hidden="true">
+          <img src={icon} alt={`${company} logo`} loading="lazy" />
         </div>
-        <ul style={{ textAlign: "left", marginTop: "1rem" }}>
-          
-          
+        <div className="education-meta">
+          <p className="education-duration">
+            {startDate} — {endDate}
+          </p>
+          <h3>
+            {degreeLabel}
+            {specialization && (
+              <span className="education-field">{specialization}</span>
+            )}
+          </h3>
+          <p className="education-school">
+            {company} · {location}
+          </p>
+        </div>
+        <span className="education-grade">{grade}</span>
+      </div>
+
+      {highlights.length > 0 && (
+        <ul className="education-highlights">
+          {highlights.map((item, idx) => (
+            <li key={idx}>{item}</li>
+          ))}
         </ul>
-      </Card.Body>
-    </Card>
+      )}
+    </article>
   );
 }
+
 export default ProjectCards;

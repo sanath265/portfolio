@@ -24,9 +24,7 @@ function NavBar() {
       expanded={expand}
       fixed="top"
       expand="md"
-      className="navbar"
-      bg="light"
-      variant="light"
+      className="sticky"
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">

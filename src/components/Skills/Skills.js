@@ -1,28 +1,32 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Github from "./Github";
+import { Container } from "react-bootstrap";
 import Techstack from "./Techstack";
 import Toolstack from "./Toolstack";
+import Github from "./Github";
 
-function About() {
+function Skills() {
   return (
-    <Container fluid className="about-section">
+    <section className="skills-section">
+      <div className="skills-sparks" aria-hidden="true">
+        {[...Array(16)].map((_, idx) => (
+          <span key={idx} style={{ "--i": idx }} />
+        ))}
+      </div>
       <Container>
-        <h1 className="project-heading">
-          Professional <strong className="purple">Skillset </strong>
-        </h1>
+        <section className="skills-panel">
+          <h2 className="skills-heading">Technical skills I know</h2>
+          <Techstack />
+        </section>
 
-        <Techstack />
-
-        <h1 className="project-heading">
-          <strong className="purple">Tools</strong> I use
-        </h1>
-        <Toolstack />
+        <section className="skills-panel">
+          <h2 className="skills-heading">Tools I use</h2>
+          <Toolstack />
+        </section>
 
         <Github />
       </Container>
-    </Container>
+    </section>
   );
 }
 
-export default About;
+export default Skills;

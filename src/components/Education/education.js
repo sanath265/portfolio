@@ -1,47 +1,47 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
-import airasiaLogo from "../../Assets/Company/iit.jpeg";
-import  ucbLogo from "../../Assets/Company/cub.jpeg";
+import iitLogo from "../../Assets/Company/iit.jpeg";
+import ucbLogo from "../../Assets/Company/cub.jpeg";
 
-const experiences = [
+const educationTimeline = [
   {
     company: "University of Colorado Boulder",
-    role: "Master of Science in Computer Science",
-    location: "Boulder, Colorado",
-    startDate: "August 2024",
-    endDate: "Present",
-    description: [
-    ],
+    role: "Master of Science · Computer Science",
+    location: "Boulder, CO",
+    startDate: "Aug 2024",
+    endDate: "May 2026",
     icon: ucbLogo,
-    grade: "4.0"
+    grade: "3.84 GPA"
   },
   {
-    company: "Indian Institute of Technology Dharwad",
-    role: "Bachelor of Technology in Mechanical Engineering",
-    location: "Dharwad, Karnataka",
-    startDate: "August 2018",
-    endDate: "June 2022",
-    description: [
-      
-    ],
-    icon: airasiaLogo,
-    grade: "8.7"
+    company: "IIT Dharwad",
+    role: "Bachelor of Technology · Mechanical Engineering",
+    location: "Dharwad, India",
+    startDate: "Aug 2018",
+    endDate: "Jun 2022",
+    icon: iitLogo,
+    grade: "8.7 CGPA"
   }
 ];
 
-function Projects() {
+function Education() {
   return (
-    <Container fluid className="project-section">
-      <Container>
-        {experiences.map((data, idx) => (
-          <Row key={idx} style={{ justifyContent: "center", paddingBottom: "50px" }}>
-            <ProjectCard data={data} />
-          </Row>
+    <section className="education-section">
+      <div className="education-sparks" aria-hidden="true">
+        {[...Array(14)].map((_, idx) => (
+          <span key={idx} style={{ "--i": idx }} />
         ))}
+      </div>
+      <Container>
+        <div className="education-timeline">
+          {educationTimeline.map((entry) => (
+            <ProjectCard key={entry.company} data={entry} />
+          ))}
+        </div>
       </Container>
-    </Container>
+    </section>
   );
 }
 
-export default Projects;
+export default Education;

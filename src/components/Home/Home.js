@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { AiFillGithub, AiOutlineTwitter, AiFillInstagram } from "react-icons/ai";
+import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import Type from "./Type";
 import profilePic from "../../Assets/profile.png";
 import profilePic2 from "../../Assets/profile2.jpg";
@@ -8,79 +8,105 @@ import { SiLeetcode, SiLinkedin } from "react-icons/si";
 
 function Home() {
   const [hovered, setHovered] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger entrance animations after mount
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section>
       <Container fluid className="home-section" id="home">
-        <Container className="home-content" style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
-          <Row>
-            <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
+        {/* Animated background elements */}
+        <div className="home-bg-shapes">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+        </div>
+
+        <Container className="home-content">
+          <Row className="align-items-center">
+            <Col lg={7} md={12} className={`home-header ${isLoaded ? 'slide-in-left' : ''}`}>
+              <div className="greeting-wrapper">
+                <span className="greeting-badge">Welcome to my portfolio</span>
+              </div>
+
+              <h1 className="hero-title">
                 Hi There!{" "}
                 <span className="wave" role="img" aria-labelledby="wave">
                   👋🏻
                 </span>
               </h1>
 
-              <h1 className="heading-name">
-                I'M
-                <strong className="main-name"> SANATH KAVATOORU</strong>
+              <h1 className="hero-name">
+                I'm <span className="gradient-text">Sanath Kavatooru</span>
               </h1>
 
-              <div style={{ padding: 20, textAlign: "left" }}>
+              <div className="hero-description">
                 <Type />
               </div>
 
-              <Row>
-                <Col md={12} className="home-about-social">
-                  <h1>FIND ME ON</h1>
-                  <p>
-                    Feel free to <span className="purple">connect </span>with me
-                  </p>
-                  <ul className="home-about-social-links">
-                    <li className="social-icons">
-                      <a href="https://github.com/sanath265" target="_blank" rel="noreferrer" className="icon-colour home-social-icons">
-                        <AiFillGithub />
-                      </a>
-                    </li>
-                    <li className="social-icons">
-                      <a href="https://leetcode.com/u/sanathkavatooru/" target="_blank" rel="noreferrer" className="icon-colour home-social-icons">
-                        <SiLeetcode />
-                      </a>
-                    </li>
-                    <li className="social-icons">
-                      <a href="https://www.linkedin.com/in/sanathkavatooru/" target="_blank" rel="noreferrer" className="icon-colour home-social-icons">
-                        <SiLinkedin />
-                      </a>
-                    </li>
-                    <li className="social-icons">
-                      <a href="https://www.instagram.com/_.sanathh._/" target="_blank" rel="noreferrer" className="icon-colour home-social-icons">
-                        <AiFillInstagram />
-                      </a>
-                    </li>
-                  </ul>
-                </Col>
-              </Row>
+              <div className="social-section">
+                <p className="social-text">
+                  Let's <span className="gradient-text">connect</span> and build something amazing
+                </p>
+                <ul className="social-links">
+                  <li className="social-item" style={{ animationDelay: '0.1s' }}>
+                    <a href="https://github.com/sanath265" target="_blank" rel="noreferrer" className="social-link" aria-label="GitHub">
+                      <AiFillGithub />
+                      <span className="social-tooltip">GitHub</span>
+                    </a>
+                  </li>
+                  <li className="social-item" style={{ animationDelay: '0.2s' }}>
+                    <a href="https://leetcode.com/u/sanathkavatooru/" target="_blank" rel="noreferrer" className="social-link" aria-label="LeetCode">
+                      <SiLeetcode />
+                      <span className="social-tooltip">LeetCode</span>
+                    </a>
+                  </li>
+                  <li className="social-item" style={{ animationDelay: '0.3s' }}>
+                    <a href="https://www.linkedin.com/in/sanathkavatooru/" target="_blank" rel="noreferrer" className="social-link" aria-label="LinkedIn">
+                      <SiLinkedin />
+                      <span className="social-tooltip">LinkedIn</span>
+                    </a>
+                  </li>
+                  <li className="social-item" style={{ animationDelay: '0.4s' }}>
+                    <a href="https://www.instagram.com/_.sanathh._/" target="_blank" rel="noreferrer" className="social-link" aria-label="Instagram">
+                      <AiFillInstagram />
+                      <span className="social-tooltip">Instagram</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </Col>
 
-            <Col md={5} className="home-avatar" style={{ paddingBottom: 20, textAlign: "center", perspective: "600px" }}>
-              <img
-                src={hovered ? profilePic2 : profilePic}
-                alt="My Profile"
-                className="img-fluid"
+            <Col lg={5} md={12} className={`home-avatar ${isLoaded ? 'slide-in-right' : ''}`}>
+              <div
+                className="avatar-container"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
-                style={{
-                  width: "100%",
-                  maxWidth: "450px",
-                  aspectRatio: "1 / 1",
-                  objectFit: "cover",
-                  borderRadius: "50%",
-                  border: "5px solid var(--accent-color)",
-                  transition: "transform 0.6s ease",
-                  transformStyle: "preserve-3d",
-                  transform: hovered ? "rotateY(360deg)" : "rotateY(0deg)"
-                }}
-              />
+              >
+                <div className={`avatar-glow ${hovered ? 'active' : ''}`}></div>
+                <div className="avatar-ring"></div>
+                <div className={`avatar-wrapper ${hovered ? 'flipped' : ''}`}>
+                  <img
+                    src={profilePic}
+                    alt="Sanath Kavatooru"
+                    className="avatar-front"
+                  />
+                  <img
+                    src={profilePic2}
+                    alt="Sanath Kavatooru"
+                    className="avatar-back"
+                  />
+                </div>
+                <div className="avatar-particles">
+                  {[...Array(6)].map((_, i) => (
+                    <span key={i} className="particle" style={{ '--i': i }}></span>
+                  ))}
+                </div>
+              </div>
             </Col>
           </Row>
         </Container>
