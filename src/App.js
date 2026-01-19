@@ -17,9 +17,33 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Derive router basename from PUBLIC_URL so local dev and GitHub Pages both work.
+const getBasename = () => {
+  const publicUrl = process.env.PUBLIC_URL || "";
+  if (!publicUrl) {
+    return "/";
+  }
+
+  try {
+    const url = new URL(publicUrl);
+    if (url.pathname === "/" || !url.pathname) {
+      return "/";
+    }
+    return url.pathname.replace(/\/$/, "");
+  } catch {
+    const normalized = publicUrl.replace(/\/$/, "");
+    if (!normalized) {
+      return "/";
+    }
+    return normalized.startsWith("/") ? normalized : `/${normalized}`;
+  }
+};
+
 function App() {
+  const basename = getBasename();
+
   return (
-    <Router basename="/portfolio">
+    <Router basename={basename}>
       {/* <Preloader load={load} /> */}
       <div className="App" id={"scroll"}>
         <Navbar />
