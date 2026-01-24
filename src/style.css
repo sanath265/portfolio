@@ -13,24 +13,23 @@ button:focus {
 /* --------- */
 
 ::-webkit-scrollbar {
-  width: 10px;
-  background: #050915;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, #050915, #0d182b);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--accent-color), var(--accent-deep));
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.45);
+  background-color: rgba(37, 99, 235, 0.4);
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--accent-hover), var(--accent-deep));
+  background-color: rgba(37, 99, 235, 0.7);
 }
 
 html,
@@ -50,18 +49,36 @@ body {
 /* --------- */
 .sticky {
   background-color: rgba(255, 255, 255, 0.1) !important;
-  transition: all 0.3s ease-out 0s !important;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
-  backdrop-filter: blur(40px) saturate(180%) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
 .navbar {
   position: fixed !important;
   transition: all 0.5s ease-out 0s !important;
-  padding: 1rem 2rem !important;
-  font-size: 1.1rem !important;
+  padding: 0.2rem 1.2rem !important;
+  /* Ultra Compact Padding */
+  font-size: 0.9rem !important;
+  /* Smaller text */
   font-weight: 500;
+
+  /* Floating Capsule Style */
+  top: 10px !important;
+  /* Minimal top gap */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: fit-content !important;
+  min-width: 260px;
+  /* Further Reduced min-width */
+  border-radius: 50px !important;
+  margin: 0 auto !important;
+
+  /* Glass Effect Base */
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
 }
 
 .navbar-toggler {
@@ -118,9 +135,14 @@ body {
 
 @media (max-width: 767px) {
   .navbar {
-    padding: 1rem 2rem !important;
-    font-size: 1.4rem !important;
-    background-color: var(--dark-bg) !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1.2rem !important;
+    width: 90% !important;
+    /* Wider on mobile */
+    top: 15px !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    /* More opaque on mobile for readability */
+    backdrop-filter: blur(20px) !important;
   }
 
   .navbar-nav .nav-item a::after {
@@ -228,11 +250,11 @@ body {
 
 .section-shell {
   position: relative;
-  min-height: 100vh;
-  min-height: 100vh;
-  padding: 140px 0 80px;
+  min-height: auto;
+  padding: 120px 0 80px;
   color: var(--text-color);
   overflow: hidden;
+  scroll-margin-top: 100px;
 }
 
 .wave {
@@ -280,6 +302,7 @@ body {
 .home-section {
   display: flex;
   align-items: center;
+  min-height: 100vh;
 }
 
 .home-section::before,
@@ -883,7 +906,7 @@ body {
 /* --------- */
 .experience-section {
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
   padding: 80px 0 140px;
   color: var(--text-color);
   overflow: hidden;
@@ -1190,8 +1213,8 @@ body {
 /* --------- */
 .education-section {
   position: relative;
-  min-height: 100vh;
-  padding: 150px 0 120px;
+  min-height: auto;
+  padding: 100px 0 80px;
   color: var(--text-color);
   overflow: hidden;
 }
@@ -1427,8 +1450,8 @@ body {
 /* --------- */
 .skills-section {
   position: relative;
-  padding: 150px 0 120px;
-  min-height: 100vh;
+  padding: 100px 0 80px;
+  min-height: auto;
   color: var(--text-color);
   overflow: hidden;
 }
@@ -1599,8 +1622,8 @@ body {
 
 .resume-section {
   position: relative;
-  padding: 150px 0 130px;
-  min-height: 100vh;
+  padding: 120px 0 100px;
+  min-height: auto;
   color: var(--text-color);
   overflow: hidden;
 }

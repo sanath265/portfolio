@@ -29,8 +29,6 @@ import {
   SiSpringboot,
   SiNestjs,
   SiOpenai,
-  SiPytorch,
-  SiTensorflow,
   SiVisualstudiocode,
   SiPostman,
   SiSlack,
@@ -39,7 +37,8 @@ import {
   SiGnubash,
   SiStreamlit
 } from "react-icons/si";
-import { FaApple, FaBrain } from "react-icons/fa";
+import { FaApple, FaSearch } from "react-icons/fa";
+import { GiArtificialIntelligence } from "react-icons/gi";
 
 function Skills() {
   const skillCategories = [
@@ -104,9 +103,9 @@ function Skills() {
         { name: "LangChain", icon: <img src="https://avatars.githubusercontent.com/u/126733545?v=4" alt="LangChain" /> },
         { name: "LangGraph", icon: <img src="https://avatars.githubusercontent.com/u/126733545?v=4" alt="LangGraph" /> },
         { name: "OpenAI API", icon: <SiOpenai color="#412991" /> },
-        { name: "RAG", icon: <FaBrain color="#FF6F61" /> },
-        { name: "Prompt Eng", icon: <FaBrain color="#FF6F61" /> },
-        { name: "ChromaDB", icon: <img src="https://avatars.githubusercontent.com/u/116962387?v=4" alt="ChromaDB" /> }
+        { name: "RAG", icon: <FaSearch color="#2563eb" /> },
+        { name: "Prompt Eng", icon: <GiArtificialIntelligence color="#10a37f" /> },
+        { name: "ChromaDB", icon: <img src="https://docs.trychroma.com/img/chroma.svg" alt="ChromaDB" /> }
       ]
     },
     {
