@@ -3,18 +3,34 @@ import { BsGithub } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
 
 function ProjectCard({
+  category,
+  imgPath,
   title,
-  summary,
+  description,
   metrics = [],
-  stack = [],
+  tags = [],
   ghLink,
   demoLink
 }) {
   return (
     <article className="project-card-modern">
+      {imgPath && (
+        <div className="project-card-img-wrapper">
+          <img src={imgPath} alt={title} className="project-card-img" />
+          {category && <span className="project-category-badge">{category}</span>}
+        </div>
+      )}
       <div className="project-card-header">
         <h3>{title}</h3>
-        <p>{summary}</p>
+        {Array.isArray(description) ? (
+          <ul className="project-card-description-list">
+            {description.map((point, i) => (
+              <li key={i}>{point}</li>
+            ))}
+          </ul>
+        ) : (
+          <p style={{ textAlign: "justify" }}>{description}</p>
+        )}
       </div>
 
       {metrics.length > 0 && (
@@ -27,7 +43,7 @@ function ProjectCard({
 
       <div className="project-card-footer">
         <div className="project-tags">
-          {stack.map((tag) => (
+          {tags.map((tag) => (
             <span key={`${title}-${tag}`}>{tag}</span>
           ))}
         </div>

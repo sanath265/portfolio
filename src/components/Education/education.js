@@ -27,16 +27,31 @@ const educationTimeline = [
 
 function Education() {
   return (
-    <section className="education-section">
-      <div className="education-sparks" aria-hidden="true">
-        {[...Array(14)].map((_, idx) => (
-          <span key={idx} style={{ "--i": idx }} />
-        ))}
+    <section className="section-shell education-section" id="education">
+      <div className="home-bg-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
+        <div className="shape shape-3"></div>
       </div>
       <Container>
-        <div className="education-timeline">
-          {educationTimeline.map((entry) => (
-            <ProjectCard key={entry.company} data={entry} />
+        <div className="experience-heading" style={{ textAlign: "center", paddingLeft: "0", marginBottom: "50px" }}>
+          <span className="experience-eyebrow">My Education</span>
+        </div>
+
+        <div className="education-grid">
+          {educationTimeline.map((entry, index) => (
+            <div className="education-card" key={index}>
+              <div className="edu-icon-wrapper">
+                <img src={entry.icon} alt={entry.company} className="edu-icon" />
+              </div>
+              <div className="edu-content">
+                <h3 className="edu-school">{entry.company}</h3>
+                <h4 className="edu-degree">{entry.role}</h4>
+                <p className="edu-date">{entry.startDate} - {entry.endDate}</p>
+                <p className="edu-grade">{entry.grade}</p>
+                <p className="edu-location">{entry.location}</p>
+              </div>
+            </div>
           ))}
         </div>
       </Container>

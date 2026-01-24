@@ -1,79 +1,146 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
-
-const featuredProjects = [
-  {
-    title: "URL Shortener",
-    type: "Product Launch",
-    timeline: "2024 · React · FastAPI · GKE",
-    summary:
-      "Full-stack branded URL shortener with geo-targeting, expiring links, and RBAC controls powering marketing teams.",
-    metrics: [
-      "Serves 10K+ redirects/day at 99.9% uptime with multi-region workers and Redis caching.",
-      "Workflow handles vanity URLs, password protection, and approvals from a React control room."
-    ],
-    stack: ["React", "FastAPI", "PostgreSQL", "Redis", "GKE", "Docker"],
-    ghLink: "https://github.com/sanath265/getmyuri",
-    demoLink: "https://app.getmyuri.com/"
-  },
-  {
-    title: "AI Learning Assistant",
-    type: "AI · RAG",
-    timeline: "2024 · Python · Streamlit",
-    summary:
-      "Multimodal assistant for quizzes, document-based study, and mock interviews with natural voice UX.",
-    metrics: [
-      "RAG pipeline ingests 50+ PDFs into ChromaDB embeddings delivering 85% accurate answers.",
-      "Bidirectional STT/TTS loop keeps latency under 500ms for conversational tutoring."
-    ],
-    stack: ["Python", "LangChain", "ChromaDB", "OpenAI", "Streamlit"],
-    ghLink: "https://github.com/sanath265"
-  },
-  {
-    title: "AudioTranscriptor",
-    type: "iOS",
-    timeline: "2023 · Swift · GCP",
-    summary:
-      "Offline-first iOS recorder that chunks long-form sessions and syncs transcripts in the cloud.",
-    metrics: [
-      "Streams 2+ hour sessions via AVAudioEngine, chunking into 30s uploads with 99% success.",
-      "Transcript playback UX keeps speech/text synced under 100ms for rapid review."
-    ],
-    stack: ["Swift", "AVFoundation", "Combine", "Cloud Storage"],
-    ghLink: "https://github.com/sanath265"
-  },
-  {
-    title: "PeakView Data Platform",
-    type: "Full-stack",
-    timeline: "2022 · React · Node · GCP",
-    summary:
-      "Inventory + revenue cockpit helping local vendors visualize cash flow, SKUs, and low-stock alerts.",
-    metrics: [
-      "Containerized services on Kubernetes process 250K+ order rows with realtime dashboards.",
-      "Role-based workspace unlocks purchase orders, vendor CRM, and ledger exports."
-    ],
-    stack: ["React", "Node.js", "MongoDB", "Kubernetes", "Tailwind"],
-    ghLink: "https://github.com/sanath265/PeakView-Frontend"
-  }
-];
+// Import consolidated project images
+import medicalChatbot from "../../Assets/Projects/a_medical_chatbot.png";
+import aiAssistant from "../../Assets/Projects/a_AIAssistant.png";
+import docSageApp from "../../Assets/Projects/a_docsage_app.png";
+import aiAssistantApp from "../../Assets/Projects/a_AIAssiatant_app.png";
+import audioTranscriptor from "../../Assets/Projects/audio_transcriptor_app.png";
+import faceFilter from "../../Assets/Projects/face_filter_app.png";
+import urlShortener from "../../Assets/Projects/a_url_shortner.png";
+import chemicalSims from "../../Assets/Projects/a_nsf_chemical.png";
 
 function Projects() {
+  const projects = [
+    {
+      category: "GenAI",
+      imgPath: medicalChatbot,
+      title: "DocSage AI ChatBot",
+      description: [
+        "Created a full-stack RAG assistant (Next.js, FastAPI) enabling grounded Q&A over PDFs using LangChain, OpenAI, and vector search.",
+        "Established REST APIs integrated with AWS S3 to persist vector stores, enabling seamless pulling and pushing of embedding updates."
+      ],
+      ghLink: "https://github.com/sanath265/docHelpChatBot",
+      demoLink: "https://doc-help-chat-bot.vercel.app",
+      tags: ["Python", "FastAPI", "Next.js", "LangChain", "OpenAI", "AWS"]
+    },
+    {
+      category: "GenAI",
+      imgPath: aiAssistant,
+      title: "AI Learning Assistant",
+      description: [
+        "Orchestrated an adaptive learning platform using Streamlit and LangGraph, coordinating a finetuned LLM and multi-modal RAG pipeline.",
+        "Served voice-first quizzes and mock interviews by integrating STT/TTS and hosting inference on GPU infrastructure."
+      ],
+      ghLink: "https://github.com/sanath265/AILearningAssistant",
+      demoLink: "https://ai-learning-assistant-nine.vercel.app",
+      tags: ["Python", "LangGraph", "LangChain", "Streamlit", "ChromaDB"]
+    },
+    {
+      category: "Mobile",
+      imgPath: docSageApp,
+      title: "DocSage AI App",
+      description: [
+        "Built a native iOS client featuring a modern SwiftUI chat interface with document-gated sessions.",
+        "Implemented a unified design system and MVVM architecture matching the web platform."
+      ],
+      ghLink: "https://github.com/sanath265/DocSageAIApp",
+      demoLink: "",
+      tags: ["SwiftUI", "Combine", "MVVM", "iOS"]
+    },
+    {
+      category: "Mobile",
+      imgPath: aiAssistantApp,
+      title: "AI Learning Assistant App",
+      description: [
+        "Developed a mobile companion app for managing uploads and accessing intelligent flashcards offline.",
+        "Designed seamless offline synchronization for study materials and mock interviews."
+      ],
+      ghLink: "https://github.com/sanath265/AILearningAssistantApp",
+      demoLink: "",
+      tags: ["Swift", "CoreData", "iOS"]
+    },
+    {
+      category: "Mobile",
+      imgPath: audioTranscriptor,
+      title: "Audio Transcriptor",
+      description: [
+        "Crafted a native iOS app in Swift handling lengthy recordings (2+ hours) by chunking audio and implementing a resumable upload pipeline.",
+        "Achieved a seamless transcript playback experience with <100ms sync latency, optimizing navigation for long audio files."
+      ],
+      ghLink: "https://github.com/sanath265/AudioTranscriptor",
+      demoLink: "",
+      tags: ["Swift", "AVAudioEngine", "AWS", "OpenAPI"]
+    },
+    {
+      category: "Mobile",
+      imgPath: faceFilter,
+      title: "Face Filter Application",
+      description: [
+        "Engineered a real-time augmented reality moustache overlay using ARKit and SceneKit.",
+        "Implemented high-performance video recording capabilities and precise 3D face tracking."
+      ],
+      ghLink: "https://github.com/sanath265/voiceraFace",
+      demoLink: "",
+      tags: ["ARKit", "SceneKit", "iOS"]
+    },
+    {
+      category: "Fullstack",
+      imgPath: urlShortener,
+      title: "URL Shortener",
+      description: [
+        "Engineered a high-performance URL shortener with Spring Boot and PostgreSQL on Google Cloud, implementing Redis caching.",
+        "Developed a ReactJS dashboard for analytics and link management, and provisioned containerized microservices using Docker and Kubernetes."
+      ],
+      ghLink: "https://github.com/sanath265/getmyuri",
+      demoLink: "https://app.getmyuri.com",
+      tags: ["Spring Boot", "React", "PostgreSQL", "Redis", "Docker", "Kubernetes", "GCP"]
+    },
+    {
+      category: "Frontend",
+      imgPath: chemicalSims,
+      title: "NSF Engineering",
+      description: [
+        "Developed interactive simulations visualizing complex engineering concepts using HTML5 Canvas and JavaScript.",
+        "Deployed educational tools used by NSF LearnChemE to demonstrate biological engineering principles."
+      ],
+      ghLink: "https://github.com/LearnChemE/LearnChemE.github.io",
+      demoLink: "https://learncheme.github.io",
+      tags: ["JavaScript", "HTML5 Canvas"]
+    }
+  ];
+
   return (
-    <section className="project-section">
-      <div className="project-sparks" aria-hidden="true">
-        {[...Array(18)].map((_, idx) => (
-          <span key={idx} style={{ "--i": idx }} />
-        ))}
+    <Container fluid className="project-section" id="projects">
+      <div className="home-bg-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
+        <div className="shape shape-3"></div>
       </div>
       <Container>
-        <div className="project-grid">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
+        <div className="experience-heading" style={{ textAlign: "center", paddingLeft: "0", marginBottom: "40px" }}>
+          <span className="experience-eyebrow">My Recent Works</span>
         </div>
+        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          {projects.map((project, index) => (
+            <Col md={4} className="project-card" key={index}>
+              <ProjectCard
+                category={project.category}
+                imgPath={project.imgPath}
+                isBlog={false}
+                title={project.title}
+                description={project.description}
+                ghLink={project.ghLink}
+                demoLink={project.demoLink}
+                tags={project.tags}
+              />
+            </Col>
+          ))}
+        </Row>
+
       </Container>
-    </section>
+    </Container >
   );
 }
 

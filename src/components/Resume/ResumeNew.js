@@ -15,11 +15,11 @@ function ResumeNew() {
   }, []);
 
   return (
-    <section className="resume-section">
-      <div className="resume-sparks" aria-hidden="true">
-        {[...Array(16)].map((_, idx) => (
-          <span key={idx} style={{ "--i": idx }} />
-        ))}
+    <section className="section-shell resume-section" id="resume">
+      <div className="home-bg-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
+        <div className="shape shape-3"></div>
       </div>
       <Container>
         <Row className="resume-cta" style={{ justifyContent: "center" }}>
