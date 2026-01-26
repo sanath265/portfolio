@@ -9,6 +9,26 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
+  const [isVisible, setIsVisible] = useState(false);
+  const pdfWrapperRef = React.useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (pdfWrapperRef.current) {
+      observer.observe(pdfWrapperRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -16,11 +36,7 @@ function ResumeNew() {
 
   return (
     <section className="section-shell resume-section" id="resume">
-      <div className="home-bg-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
-      </div>
+
       <Container>
         <Row className="resume-cta" style={{ justifyContent: "center" }}>
           <Button variant="primary" href={pdf} target="_blank" style={{ maxWidth: "250px" }}>
@@ -29,10 +45,12 @@ function ResumeNew() {
           </Button>
         </Row>
 
-        <Row className="resume">
-          <Document file={pdf} className="resume-document">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
+        <Row className="resume" ref={pdfWrapperRef} style={{ minHeight: "500px" }}>
+          {isVisible && (
+            <Document file={pdf} className="resume-document">
+              <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+            </Document>
+          )}
         </Row>
 
         <Row className="resume-cta" style={{ justifyContent: "center" }}>

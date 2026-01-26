@@ -17,11 +17,7 @@ function Home() {
     <section id="home">
       <Container fluid className="section-shell home-section">
         {/* Animated background elements */}
-        <div className="home-bg-shapes">
-          <div className="shape shape-1"></div>
-          <div className="shape shape-2"></div>
-          <div className="shape shape-3"></div>
-        </div>
+
 
         <Container className="home-content">
           <Row className="align-items-center">

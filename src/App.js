@@ -13,6 +13,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div className="App" id="scroll">
+      <div className="home-bg-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
+        <div className="shape shape-3"></div>
+      </div>
       <Navbar />
       <main>
         <Home />

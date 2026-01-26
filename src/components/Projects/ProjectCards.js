@@ -16,7 +16,13 @@ function ProjectCard({
     <article className="project-card-modern">
       {imgPath && (
         <div className="project-card-img-wrapper">
-          <img src={imgPath} alt={title} className="project-card-img" />
+          <img
+            src={imgPath}
+            alt={title}
+            className="project-card-img"
+            loading="lazy"
+            decoding="async"
+          />
           {category && <span className="project-category-badge">{category}</span>}
         </div>
       )}

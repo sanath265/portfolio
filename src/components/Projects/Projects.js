@@ -2,14 +2,14 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 // Import consolidated project images
-import medicalChatbot from "../../Assets/Projects/a_medical_chatbot.png";
-import aiAssistant from "../../Assets/Projects/a_AIAssistant.png";
-import docSageApp from "../../Assets/Projects/a_docsage_app.png";
-import aiAssistantApp from "../../Assets/Projects/a_AIAssiatant_app.png";
-import audioTranscriptor from "../../Assets/Projects/audio_transcriptor_app.png";
-import faceFilter from "../../Assets/Projects/face_filter_app.png";
-import urlShortener from "../../Assets/Projects/a_url_shortner.png";
-import chemicalSims from "../../Assets/Projects/a_nsf_chemical.png";
+import medicalChatbot from "../../Assets/Projects/a_medical_chatbot.webp";
+import aiAssistant from "../../Assets/Projects/a_AIAssistant.webp";
+import docSageApp from "../../Assets/Projects/a_docsage_app.webp";
+import aiAssistantApp from "../../Assets/Projects/a_AIAssiatant_app.webp";
+import audioTranscriptor from "../../Assets/Projects/audio_transcriptor_app.webp";
+import faceFilter from "../../Assets/Projects/face_filter_app.webp";
+import urlShortener from "../../Assets/Projects/a_url_shortner.webp";
+import chemicalSims from "../../Assets/Projects/a_nsf_chemical.webp";
 
 function Projects() {
   const projects = [
@@ -113,11 +113,7 @@ function Projects() {
 
   return (
     <Container fluid className="project-section" id="projects">
-      <div className="home-bg-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
-      </div>
+
       <Container>
         <div className="experience-heading" style={{ textAlign: "center", paddingLeft: "0", marginBottom: "40px" }}>
           <span className="experience-eyebrow">My Recent Works</span>
